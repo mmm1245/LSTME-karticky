@@ -13,12 +13,17 @@ import me.MaY.LSTMEkarticky.utils.Utils;
 public class LSTMEKartickyPluginMain extends JavaPlugin{
 	public static NamespacedKey qrMap;
 	public static NamespacedKey tradingChest;
+	
+	public String stashString;
 	@Override
 	public void onEnable() {
-        Utils.setMap(null);
-		//Utils.setMap(Utils.loadFile());
 		qrMap = new NamespacedKey(this,  "qrMap");
 		tradingChest = new NamespacedKey(this,  "tradingChest");
+		
+		this.saveDefaultConfig();
+		this.getConfig().addDefault("stash-string", "(some uuid)");
+		stashString = this.getConfig().getString("stash-string");
+		Utils.itemList = Utils.loadConfig(getConfig());
 		PluginManager pm = getServer().getPluginManager();
 		pm.registerEvents(new TradeItemsWithChestEvent(), this);
 		pm.registerEvents(new ChatInputListener(), this);
@@ -27,14 +32,14 @@ public class LSTMEKartickyPluginMain extends JavaPlugin{
 
 
 
-		System.out.println("LSTMEKarticky su tereaz funkcne, (onEnable)");
+		System.out.println("LSTMEKarticky su teraz funkcne, (onEnable)");
 	}
 	
 	@Override
 	public void onDisable() {
 		
 	}
-	public static JavaPlugin getINSTANCE() {
+	public static LSTMEKartickyPluginMain getINSTANCE() {
 		return JavaPlugin.getPlugin(LSTMEKartickyPluginMain.class);
 	}
 }

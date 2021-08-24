@@ -1,0 +1,4 @@
+stash-string: (some uuid)
+trades:
+  - NETHERITE_INGOT;1
+  - DIAMOND_BLOCK;1

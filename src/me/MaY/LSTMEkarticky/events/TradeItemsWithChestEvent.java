@@ -12,7 +12,6 @@ import org.bukkit.persistence.PersistentDataType;
 import me.MaY.LSTMEkarticky.LSTMEKartickyPluginMain;
 import me.MaY.LSTMEkarticky.utils.Utils;
 
-import org.bukkit.inventory.ItemStack;
 
 public class TradeItemsWithChestEvent implements Listener{
 	@EventHandler
@@ -28,8 +27,12 @@ public class TradeItemsWithChestEvent implements Listener{
 		Chest chest = (Chest)e.getClickedBlock().getState();
 		if(!chest.getPersistentDataContainer().has(LSTMEKartickyPluginMain.tradingChest, PersistentDataType.SHORT))
 			return;
+		e.setCancelled(true);
+		if(!Utils.hasAtLeastOneTrade(chest.getInventory())) {
+			e.getPlayer().sendMessage(ChatColor.RED + "Nemas dostatok itemov");
+			return;
+		}
         e.getPlayer().sendMessage(ChatColor.BOLD + "Napíš sem tvoje id: ");
         ChatInputListener.listening.put(e.getPlayer().getUniqueId(), chest.getLocation());
-        e.setCancelled(true);
 	}
 }

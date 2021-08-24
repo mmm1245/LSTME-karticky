@@ -21,6 +21,7 @@ public class ChatInputListener implements Listener{
 		if(!listening.containsKey(e.getPlayer().getUniqueId()))
 			return;
 		e.setCancelled(true);
+		e.getPlayer().sendMessage(e.getMessage());
 		String msg = e.getMessage().replace(" ", "");
 		if(msg.length() != 6) {
 			e.getPlayer().sendMessage(ChatColor.RED + "Invalid id");

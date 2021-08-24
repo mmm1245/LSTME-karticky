@@ -25,10 +25,9 @@ public class VymenaCommand implements CommandExecutor {
 			pl.sendMessage(ChatColor.AQUA + "| " +
 			    ChatColor.BOLD + ""  + ChatColor.WHITE + "Itemy na vymenu:");
 
-			for (ItemStack stack : Utils.getItems().keySet())
+			for (ItemStack stack : Utils.itemList)
 			{
-			    pl.sendMessage(ChatColor.RED + (stack.getAmount() + "") + "x " + ChatColor.RESET + ""
-			     + ChatColor.BOLD + stack.getType() + " : " + Utils.getItems().get(stack));
+			    pl.sendMessage(ChatColor.BOLD + (stack.getAmount() + "") + "x " + stack.getType().name());
 			}
 			
 			return true;
