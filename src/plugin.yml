@@ -1,0 +1,15 @@
+name: LSTMEKarticky
+version: 1
+author: MaY
+ridescption: karticky na lstme co ches viac?
+main: me.MaY.LSTMEkarticky.LSTMEKartickyPluginMain
+api-version: 1.17
+
+
+commands:
+  change:
+   description: Vymeni item za karticky
+   usage: "Usage: /<command> [None|String]"
+   aliases: [vymena, zmena]
+  tchest:
+   usage: "Usage: /<command>"
