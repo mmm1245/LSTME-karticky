@@ -11,13 +11,11 @@ import me.MaY.LSTMEkarticky.events.TradeItemsWithChestEvent;
 import me.MaY.LSTMEkarticky.utils.Utils;
 
 public class LSTMEKartickyPluginMain extends JavaPlugin{
-	public static NamespacedKey qrMap;
 	public static NamespacedKey tradingChest;
 	
 	public String stashString;
 	@Override
 	public void onEnable() {
-		qrMap = new NamespacedKey(this,  "qrMap");
 		tradingChest = new NamespacedKey(this,  "tradingChest");
 		
 		this.saveDefaultConfig();
