@@ -100,19 +100,22 @@ public class Utils {
 	        }
 	        chest.getSnapshotInventory().removeItem(new ItemStack(entr.getType(),entr.getAmount()));
 	        chest.update(true);
-	        Utils.summonSuccessRocket(pl.getLocation());
-	        //request stuff here
+	        
+	        String response = "{}";
 	        try {
-				String response = getTCGJson(playerID);
-				JsonObject obj = new JsonParser().parse(response).getAsJsonObject();
-				if(obj.get("status").getAsString().equals("error")) {
-					pl.sendMessage(ChatColor.RED + obj.get("error").getAsString());
-					chest.getSnapshotInventory().addItem(new ItemStack(entr.getType(),entr.getAmount()));
-			        chest.update(true);
-				}
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
+	        	
+				response = getTCGJson(playerID);
 				
+			} catch (IOException e) {}
+	        
+	        JsonObject obj = new JsonParser().parse(response).getAsJsonObject();
+			if(obj.has("status") && obj.get("status").getAsString().equals("ok")) {
+				Utils.summonSuccessRocket(pl.getLocation());
+			} else {
+				if(obj.has("error"))
+					pl.sendMessage(ChatColor.RED + obj.get("error").getAsString());
+				chest.getSnapshotInventory().addItem(new ItemStack(entr.getType(),entr.getAmount()));
+		        chest.update(true);
 			}
 	        return;
     	}

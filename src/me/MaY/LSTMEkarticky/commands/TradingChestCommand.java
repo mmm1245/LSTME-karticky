@@ -35,7 +35,7 @@ public class TradingChestCommand implements CommandExecutor {
         	return true;
         }
         Chest chest = (Chest)b.getState();
-        chest.getPersistentDataContainer().set(LSTMEKartickyPluginMain.tradingChest, PersistentDataType.SHORT, (short)1);
+        chest.getPersistentDataContainer().set(LSTMEKartickyPluginMain.getINSTANCE().tradingChest, PersistentDataType.SHORT, (short)1);
         chest.update();
         return true;
     }

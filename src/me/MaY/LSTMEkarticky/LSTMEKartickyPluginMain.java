@@ -11,7 +11,7 @@ import me.MaY.LSTMEkarticky.events.TradeItemsWithChestEvent;
 import me.MaY.LSTMEkarticky.utils.Utils;
 
 public class LSTMEKartickyPluginMain extends JavaPlugin{
-	public static NamespacedKey tradingChest;
+	public NamespacedKey tradingChest;
 	
 	public String stashString;
 	@Override
@@ -26,8 +26,6 @@ public class LSTMEKartickyPluginMain extends JavaPlugin{
 		pm.registerEvents(new ChatInputListener(), this);
 		this.getCommand("change").setExecutor(new VymenaCommand());
 		this.getCommand("tchest").setExecutor(new TradingChestCommand());
-
-
 
 		System.out.println("LSTMEKarticky su teraz funkcne, (onEnable)");
 	}

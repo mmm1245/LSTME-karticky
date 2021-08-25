@@ -25,7 +25,7 @@ public class TradeItemsWithChestEvent implements Listener{
 		if(!e.getPlayer().isSneaking())
 			return;
 		Chest chest = (Chest)e.getClickedBlock().getState();
-		if(!chest.getPersistentDataContainer().has(LSTMEKartickyPluginMain.tradingChest, PersistentDataType.SHORT))
+		if(!chest.getPersistentDataContainer().has(LSTMEKartickyPluginMain.getINSTANCE().tradingChest, PersistentDataType.SHORT))
 			return;
 		e.setCancelled(true);
 		if(!Utils.hasAtLeastOneTrade(chest.getInventory())) {
