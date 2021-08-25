@@ -21,7 +21,6 @@ public class LSTMEKartickyPluginMain extends JavaPlugin{
 		tradingChest = new NamespacedKey(this,  "tradingChest");
 		
 		this.saveDefaultConfig();
-		this.getConfig().addDefault("stash-string", "(some uuid)");
 		stashString = this.getConfig().getString("stash-string");
 		Utils.itemList = Utils.loadConfig(getConfig());
 		PluginManager pm = getServer().getPluginManager();
